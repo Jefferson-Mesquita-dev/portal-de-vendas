@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ofertas Exclusivas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+    /* Padroniza tamanho das imagens dos produtos */
+    .produto img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body class="bg-red-600 text-white font-sans">
+
+  <!-- Cabeçalho com marca -->
+  <header class="py-4 flex items-center justify-center gap-4">
+    <img src="./img/Vamos_Montar_Seu_Lar_-removebg-preview.png" 
+         alt="Top Móveis - Jefferson Mesquita" 
+         class="h-32 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold">Top Móveis - vendedor <br>Jefferson Mesquita</h1>
+  </header>
+
+  <!-- Cabeçalho ofertas -->
+  <section class="text-center py-6">
+    <h1 class="text-2xl font-bold">OFERTAS EXCLUSIVAS</h1>
+    <p class="mt-2">Estas Ofertas Expiram em</p>
+
+    <!-- Cronômetro -->
+    <div id="countdown" class="flex justify-center gap-2 text-2xl font-bold mt-3">
+      <div class="bg-black p-3 rounded">00<br><span class="text-xs">Dias</span></div>
+      <div class="bg-black p-3 rounded">00<br><span class="text-xs">Horas</span></div>
+      <div class="bg-black p-3 rounded">00<br><span class="text-xs">Min</span></div>
+      <div class="bg-black p-3 rounded">00<br><span class="text-xs">Seg</span></div>
+    </div>
+  </section>
+
+  <!-- Produtos em Carrossel -->
+  <section class="px-6 pb-10">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Card Produto 1 -->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto.html">
+            <img src="./img/Guarda-Roupa Casal Brasília 6 Portas 2 Gavetas 3375 Atualle/-SITE--ROUPEIRO-BRASILIA ambiente.webp" alt="Guarda-Roupa Casal 6 Portas">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Guarda-Roupa Casal Brasília 6 Portas 2 Gavetas 3375 Atualle</h2>
+              <p class="line-through text-gray-500 text-sm">R$ 1.096,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 643,10</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 60,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 730,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Guarda-Roupa Casal 6 Portas"
+                 data-descricao="Guarda-Roupa Casal 6 Portas, 2 Gavetas, cor Branco, design moderno e espaçoso, ideal para quartos de casal.">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Produto 2 -->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto2.html">
+            <img src="./img/Cozinha com Balcão Fortaleza 4245R com 7 Portas 2 Gavetas Atualle/COZINHA-FORTALEZA-4245R-450-CANELATO-RUSTICO-GRAFITE-FOSCO-ATUALLE.webp" alt="Cozinha com Balcão Fortaleza">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Cozinha com Balcão Fortaleza 4245R com 7 Portas 2 Gavetas Atualle</h2>
+               <p class="line-through text-gray-500 text-sm">R$ R$ 1.294,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 759,26</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 71,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 862,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Cozinha com Balcão Fortaleza"
+                 data-descricao="Cozinha com Balcão Fortaleza 4245R com 7 Portas 2 Gavetas Atualle.">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Produto 3 -->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto3.html">
+            <img src="./img/bancada  nt 1180/BANCADA-NT1180 branco fundo branco.webp" alt="bancada nt1180">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Bancada 135cm para Tv ate 50 Polegadas NT1180 Notável</h2>
+               <p class="line-through text-gray-500 text-sm">R$ 502,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 294,62</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 27,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 334,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Bancada 135cm para Tv ate 50 Polegadas NT1180 Notável - Freijó Trend com Preto"
+                 data-descricao="Bancada 135cm para Tv ate 50 Polegadas NT1180 Notável - Freijó Trend com Preto.">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Produto 4 -->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto4.html">
+            <img src="./img/Conjunto Box Paris Casal Molas Ens 138X188X68/Conjunto Box Paris ambiente.jpg" alt="Cozinha com Balcão Fortaleza">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Conj Box Paris Casal com Molas Ensacadas 138X188X68cm Topázio</h2>
+               <p class="line-through text-gray-500 text-sm">R$ 1.744,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 1.023,26</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 96,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 1.162,806</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Cozinha com Balcão Fortaleza"
+                 data-descricao="Cozinha com Balcão Fortaleza 4245R com 7 Portas 2 Gavetas Atualle.">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Produto 5-->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto5.html">
+            <img src="./img/Cômoda Áurea/COMODA-MULTIUSO-AUREA-4270-ambiente.webp" alt="comoda aurea">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Cômoda Áurea 4 Gavetas e 2 Portas com Nicho 4290 Demóbile</h2>
+               <p class="line-through text-gray-500 text-sm">R$ 970,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 569,18</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 53,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 646,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Cozinha com Balcão Fortaleza"
+                 data-descricao="Cozinha com Balcão Fortaleza 4245R com 7 Portas 2 Gavetas Atualle.">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Produto 6-->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto6.html">
+            <img src="./img/multiuso nt4015/-SITE-MULTIUSO-LAVANDERIA-NT4015 branco ambiente.webp" alt="multiuso nt4015">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Armário Multiuso para Lavanderia com 2 Portas NT4015 Notável - Branco New</h2>
+               <p class="line-through text-gray-500 text-sm">R$ 646,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 379,10</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 35,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 430,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Cozinha com Balcão Fortaleza"
+                 data-descricao="Cozinha com Balcão Fortaleza 4245R com 7 Portas 2 Gavetas Atualle.">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+           <!-- Card Produto 8-->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto8.html">
+            <img src="./img/Cômoda Isadora com 8 gavetas ambiente/-SITE-COMODA-ISADORA-BRANCO ambiente.webp" alt="Cômoda Isadora">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Cômoda Isadora com 8 gavetas em MDF premium e Kit de Pés Tuboarte - Branco</h2>
+               <p class="line-through text-gray-500 text-sm">R$ 1.006,20/p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 590,30</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 55,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 670,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Cômoda Isadora"
+                 data-descricao="Cômoda Isadora com 8 gavetas em MDF premium e Kit de Pés Tuboarte - Branco.">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Produto 9-->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto9.html">
+            <img src="./img/Guarda Roupa CBM563 3 Portas frente/Guarda Roupa CBM563 3 Portas frente.webp" alt="Guarda Roupa CBM563">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Guarda Roupa CBM563 3 Portas De Correr Com Pés e Espelho Kappersberg - Branco</h2>
+               <p class="line-through text-gray-500 text-sm">R$ 1.582,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 928,22</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 87,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 1.054,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Cômoda Isadora"
+                 data-descricao="Cômoda Isadora com 8 gavetas em MDF premium e Kit de Pés Tuboarte - Branco.">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Produto 10-->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto10.html">
+            <img src="./img/Home NT1295 183cm/HOME-NT1295-183CM-REF-270-FREIJO-OFF-WHITE-TX-ambiente.webp" alt="Home NT1295">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Home NT1295 183cm para Tv ate 60 Polegadas Notável</h2>
+               <p class="line-through text-gray-500 text-sm">R$ 1.618,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 949,34</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 89,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 1.078,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Home NT1295 183cm"
+                 data-descricao="para Tv ate 60 Polegadas com Detalhe Ripado e Pés Notável - Freijó Trend/ Off White Tx">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card Produto 11-->
+        <div class="swiper-slide">
+          <div class="bg-white text-black rounded-lg p-3 shadow-md produto">
+            <a href="./produto11.html">
+            <img src="./img/Ar Condicionado Inverter II Wi-Fi 9000Btus/Ar Condicionado II 9000Btus frente.webp" alt="Ar Condicionado Inverter II Wi-Fi 9000Btus">
+            </a>
+            <div class="mt-3">
+              <span class="bg-red-600 text-white px-2 py-1 text-xs rounded">OFERTA</span>
+              <span class="bg-black text-white px-2 py-1 text-xs rounded ml-2">EXCLUSIVA</span>
+              <h2 class="mt-2 font-semibold text-sm">Ar Condicionado Inverter II Wi-Fi 9000Btus Elgin - Branco/220V</h2>
+               <p class="line-through text-gray-500 text-sm">R$ 3.598,20</p>
+              <p class=" text-red-600 font-bold text-sm">AVISTA</p>
+            <p class="preco-promocional text-red-600 font-bold text-lg">R$ 2.098,92</p>
+              <p class="text-green-600 text-sm">ou 12x de R$ 199,90</p>
+              <p class="preco-original text-green-600 text-sm">R$ 2.398,80</p>
+              <p class="desconto text-xs font-bold mt-1"></p>
+
+
+              <!-- Botão WhatsApp com descrição -->
+              <a href="#" 
+                 class="whatsapp-btn mt-3 block bg-green-600 hover:bg-green-700 text-white font-bold text-center py-2 rounded-lg transition"
+                 data-produto="Ar Condicionado Inverter II Wi-Fi 9000Btus"
+                 data-descricao="HJFI09C2WB/HJFE09C2CB Elgin - Branco/220V">
+                 Finalizar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Aqui você pode adicionar mais cards seguindo o mesmo padrão -->
+
+      </div>
+
+      <!-- Botões navegação -->
+      <div class="flex justify-center mt-4 gap-4">
+        <div class="swiper-button-prev !text-white"></div>
+        <div class="swiper-button-next !text-white"></div>
+      </div>
+
+      <!-- Paginação -->
+      <div class="swiper-pagination mt-4"></div>
+    </div>
+  </section>
+
+  <!-- Script Cronômetro -->
+  <script>
+    function startCountdown(targetDate) {
+      const countdown = document.getElementById("countdown");
+      const boxes = countdown.querySelectorAll("div");
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+          countdown.innerHTML = "<p class='text-xl font-bold'>Oferta Expirada</p>";
+          clearInterval(interval);
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        boxes[0].innerHTML = days.toString().padStart(2, '0') + "<br><span class='text-xs'>Dias</span>";
+        boxes[1].innerHTML = hours.toString().padStart(2, '0') + "<br><span class='text-xs'>Horas</span>";
+        boxes[2].innerHTML = minutes.toString().padStart(2, '0') + "<br><span class='text-xs'>Min</span>";
+        boxes[3].innerHTML = seconds.toString().padStart(2, '0') + "<br><span class='text-xs'>Seg</span>";
+      }
+
+      updateCountdown();
+      const interval = setInterval(updateCountdown, 1000);
+    }
+
+    const targetDate = new Date("2025-10-21T17:59:59");
+    startCountdown(targetDate);
+  </script>
+
+  <!-- Script para calcular desconto -->
+  <script>
+    document.querySelectorAll(".produto").forEach(produto => {
+      const precoOriginalEl = produto.querySelector(".preco-original");
+      const precoPromocionalEl = produto.querySelector(".preco-promocional");
+      const descontoEl = produto.querySelector(".desconto");
+
+      if (precoOriginalEl && precoPromocionalEl) {
+        const original = parseFloat(precoOriginalEl.innerText.replace("R$","").replace(".","").replace(",",".")); 
+        const promocional = parseFloat(precoPromocionalEl.innerText.replace("R$","").replace(".","").replace(",",".")); 
+        if (original > promocional) {
+          const desconto = ((1 - (promocional / original)) * 100).toFixed(0);
+          descontoEl.innerText = desconto + "% OFF";
+        }
+      }
+    });
+  </script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 4 },
+      }
+    });
+  </script>
+
+  <!-- Script WhatsApp dinâmico -->
+  <script>
+    document.querySelectorAll(".whatsapp-btn").forEach(botao => {
+      botao.addEventListener("click", (e) => {
+        e.preventDefault();
+        const produto = botao.getAttribute("data-produto");
+        const descricao = botao.getAttribute("data-descricao");
+        const numero = "5588974008564";
+        const mensagem = encodeURIComponent(`Olá! Tenho interesse no produto: ${produto}\nDescrição: ${descricao}`);
+        const url = `https://wa.me/${numero}?text=${mensagem}`;
+        window.open(url, "_blank");
+      });
+    });
+  </script>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a href="https://wa.me/message/SNQBKEEPYYD4B1" 
+     target="_blank" 
+     class="fixed bottom-5 right-5 bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-full shadow-lg flex items-center gap-2 z-50">
+     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="w-6 h-6" alt="WhatsApp">
+     WhatsApp
+  </a>
+
+</body>
+</html>

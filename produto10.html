@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto - Guarda Roupa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    /* Área da imagem */
+    .left {
+      flex: 1;
+      display: flex;
+      padding: 10px;
+      align-items: flex-start;
+    }
+
+    .thumbs {
+      display: flex;
+      flex-direction: column;
+      margin-right: 10px;
+    }
+
+    .thumbs img {
+      width: 60px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .thumbs img.selected {
+      border: 2px solid #c00;
+    }
+
+    .main-img {
+      flex: 1;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* Área da descrição lateral */
+    .right {
+      flex: 1.2;
+      padding: 10px 20px;
+    }
+    .right h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    /* Seção de cores */
+    .colors {
+      margin: 15px 0;
+    }
+    .colors h4 {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    .color-thumbs {
+      display: flex;
+      gap: 10px;
+    }
+    .color-thumbs img {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .color-thumbs img.selected {
+      border: 2px solid #c00;
+    }
+
+    /* Preço */
+    .price p {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+    .price-old span {
+      text-decoration: line-through;
+      color: #888;
+    }
+    .price-cash span {
+      font-weight: bold;
+      color: #c00;
+      font-size: 20px;
+    }
+    .price-installment span {
+      font-weight: bold;
+    }
+
+    /* Botões */
+    .btn-whatsapp {
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 8px;
+      padding: 12px 18px;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Info extra */
+    .extra {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      .left {
+        flex-direction: column;
+        align-items: center;
+      }
+      .thumbs {
+        flex-direction: row;
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+      .thumbs img {
+        margin: 0 5px;
+      }
+    }
+
+    /* Nova seção descrição */
+    .product-description {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .desc-btn {
+      background-color: #c00;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .desc-content {
+      display: none;
+      margin-top: 15px;
+      padding: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fafafa;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Imagens -->
+    <div class="left">
+      <div class="thumbs" id="thumbs-container"></div>
+      <img src="" alt="Produto" class="main-img" id="main-img">
+    </div>
+
+    <!-- Informações -->
+    <div class="right">
+      <h2 id="product-name"></h2>
+
+      <!-- Preço -->
+      <div class="price">
+        <p class="price-old">Antes: <span>R$ 1.096,20</span></p>
+        <p class="price-cash">À vista: <span>R$ 643,10</span></p>
+        <p class="price-installment">Ou 12x de <span>R$ 60,90</span> (Total: R$ 730,80)</p>
+      </div>
+
+      <!-- Opções de cores -->
+      <div class="colors">
+        <h4>Cores disponíveis:</h4>
+        <div class="color-thumbs">
+          <img src="./img/Home NT1295 183cm/HOME-NT1295-183CM-REF-270-FREIJO-OFF-WHITE-TX-ambiente.webp" alt="FREIJO-OFF-WHITE" data-color="FREIJO-OFF-WHITE" class="selected">
+          <img src="./img/Home NT1295 183cm/HOME-NT1295-183CM-REF-243-FREIJO-PRETO ambiente.webp" alt="FREIJO-PRETO" data-color="FREIJO-PRETO">
+        </div>
+      </div>
+
+      <!-- Botão WhatsApp -->
+      <a id="whatsapp-btn" href="#" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+         Gostei do produto, quero comprar pelo WhatsApp
+      </a>
+
+      <p class="extra">A compra do móvel não inclui montagem.</p>
+    </div>
+  </div>
+
+  <!-- Seção Descrição separada -->
+  <div class="product-description">
+    <button class="desc-btn" id="desc-btn" onclick="toggleDescription()">Ver descrição completa</button>
+    <div class="desc-content" id="desc-content">
+      <h4>Descrição do Produto</h4>
+      <p>Home NT1295 183cm para TV até 60” – Notável Móveis
+
+Transforme sua sala com o Home NT1295, um móvel robusto, moderno e cheio de estilo!
+Com detalhe ripado lateral e fita de LED oculta, ele valoriza qualquer ambiente, criando um toque de elegância e sofisticação. As 2 portas com pistão a gás garantem abertura suave e prática, enquanto os puxadores em MDF completam o design refinado..</p>
+      <ul>
+        <li>✅ Estrutura em MDF e MDP, resistente e durável</li>
+        <li>✅ Compatível com TVs de até 60 polegadas</li>
+        <li>✅ 2 portas com pistão a gás para abertura suave</li>
+        <li>✅ Detalhe ripado lateral iluminado com LED embutido</li>
+      </ul>
+      <h4>Dimensões e Peso</h4>
+      <ul>
+        <li>Altura: 184 cm</li>
+        <li>Largura: 183 cm</li>
+        <li>Profundidade: 42,6 cm</li>
+        <li>Peso: 75 kg</li>
+      </ul>
+      <p><strong>Observação:</strong> A montagem não está inclusa.</p>
+    </div>
+  </div>
+
+  <script>
+    const mainImg = document.getElementById('main-img');
+    const thumbsContainer = document.getElementById('thumbs-container');
+    const colorThumbs = document.querySelectorAll('.color-thumbs img');
+    const productNameEl = document.getElementById('product-name');
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+    const phone = "5588974008564";
+    let selectedColor = "FREIJO-OFF-WHITE";
+
+    // Imagens por cor
+    const colorImages = {
+      "FREIJO-OFF-WHITE": [
+        "./img/Home NT1295 183cm/HOME-NT1295-183CM-REF-270-FREIJO-OFF-WHITE-TX-ambiente.webp",
+        "./img/Home NT1295 183cm/HOME-NT1295- led.webp",
+        "./img/Home NT1295 183cm/HOME-NT1295-183CM- fundo branco.webp",
+        "./img/Home NT1295 183cm/HOME-NT1295-183CM- lateral.webp"
+      ],
+      "FREIJO-PRETO": [
+        "./img/Home NT1295 183cm/HOME-NT1295-183CM-REF-243-FREIJO-PRETO ambiente.webp",
+        "./img/Home NT1295 183cm/HOME-NT1295-183CM-REF-243-FREIJO-PRETO fundo branco.webp",
+        "./img/Home NT1295 183cm/HOME-NT1295-183CM-REF-243-FREIJO-PRETO lateral.webp",
+        "./img/Home NT1295 183cm/HOME-NT1295-183CM-REF-243-FREIJO-PRETO aberto.webp"
+      ]
+    };
+
+    // Descrição por cor
+    const colorDescriptions = {
+      "FREIJO-OFF-WHITE": "Home NT1295 183cm para Tv ate 60 Polegadas com Detalhe Ripado e Pés Notável - Freijó Trend/ Off White Tx",
+      "FREIJO-PRETO": "Home NT1295 183cm para Tv ate 60 Polegadas com Detalhe Ripado e Pés Notável - Freijó Trend com Preto TX"
+    };
+
+    // Atualiza miniaturas
+    function updateThumbs(color) {
+      thumbsContainer.innerHTML = "";
+      colorImages[color].forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Thumb";
+        img.classList.toggle('selected', index === 0);
+        img.addEventListener("click", () => {
+          mainImg.src = src;
+          thumbsContainer.querySelectorAll('img').forEach(i => i.classList.remove('selected'));
+          img.classList.add('selected');
+        });
+        thumbsContainer.appendChild(img);
+      });
+      mainImg.src = colorImages[color][0];
+    }
+
+    // Troca de cor
+    colorThumbs.forEach(color => {
+      color.addEventListener('click', () => {
+        colorThumbs.forEach(c => c.classList.remove('selected'));
+        color.classList.add('selected');
+        selectedColor = color.dataset.color;
+        updateThumbs(selectedColor);
+        productNameEl.innerText = colorDescriptions[selectedColor];
+      });
+    });
+
+    // Botão WhatsApp
+    whatsappBtn.addEventListener('click', () => {
+      const message = `Olá, tenho interesse no produto: ${productNameEl.innerText} - Cor: ${selectedColor}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      whatsappBtn.href = url;
+    });
+
+    // Toggle descrição
+    function toggleDescription() {
+      const desc = document.getElementById("desc-content");
+      const btn = document.getElementById("desc-btn");
+      if (desc.style.display === "block") {
+        desc.style.display = "none";
+        btn.innerText = "Ver descrição completa";
+      } else {
+        desc.style.display = "block";
+        btn.innerText = "Ocultar descrição";
+      }
+    }
+
+    // Inicializa
+    updateThumbs(selectedColor);
+    productNameEl.innerText = colorDescriptions[selectedColor];
+  </script>
+
+</body>
+</html>

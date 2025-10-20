@@ -1,0 +1,89 @@
+.produto img {
+  height: 200px;
+}
+
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .left, .right {
+    width: 100%;
+    padding: 0;
+  }
+
+  .thumbs {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .thumbs img {
+    width: 50px;
+    height: auto;
+    margin: 5px;
+  }
+
+  .main-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .color-thumbs {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .color-thumbs img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .right h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .price p, .price-cash span {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .btn-whatsapp {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .extra {
+    text-align: center;
+    font-size: 13px;
+  }
+}
+
+/* Centraliza o botão WhatsApp */
+.btn-whatsapp {
+  display: block;
+  width: fit-content;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 24px;
+}
