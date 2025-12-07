@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto - Guarda Roupa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+
+      /* ==== FUNDO DA PÁGINA AJUSTADO ==== */
+      background-image: url('./natal.png.png');
+      background-size: cover;         /* cobre a tela */
+      background-position: center;    /* centraliza */
+      background-repeat: no-repeat;   /* não repete */
+      background-attachment: fixed;   /* efeito paralax */
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+
+      /* fundo branco leve para não perder legibilidade */
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+    }
+
+    /* Área da imagem */
+    .left {
+      flex: 1;
+      display: flex;
+      padding: 10px;
+      align-items: flex-start;
+    }
+
+    .thumbs {
+      display: flex;
+      flex-direction: column;
+      margin-right: 10px;
+    }
+
+    .thumbs img {
+      width: 60px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .thumbs img.selected {
+      border: 2px solid #c00;
+    }
+
+    .main-img {
+      flex: 1;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* Área da descrição lateral */
+    .right {
+      flex: 1.2;
+      padding: 10px 20px;
+
+      /* reforço para legibilidade no fundo */
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+    }
+
+    .right h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    /* Seção de cores */
+    .colors {
+      margin: 15px 0;
+    }
+    .colors h4 {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    .color-thumbs {
+      display: flex;
+      gap: 10px;
+    }
+    .color-thumbs img {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .color-thumbs img.selected {
+      border: 2px solid #c00;
+    }
+
+    /* Preço */
+    .price p {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+    .price-old span {
+      text-decoration: line-through;
+      color: #888;
+    }
+    .price-cash span {
+      font-weight: bold;
+      color: #c00;
+      font-size: 20px;
+    }
+    .price-installment span {
+      font-weight: bold;
+    }
+
+    /* Botões */
+    .btn-whatsapp {
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 8px;
+      padding: 12px 18px;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Info extra */
+    .extra {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left {
+        flex-direction: column;
+        align-items: center;
+      }
+      .thumbs {
+        flex-direction: row;
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+      .thumbs img {
+        margin: 0 5px;
+      }
+    }
+
+    /* Nova seção descrição */
+    .product-description {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+    }
+    .desc-btn {
+      background-color: #c00;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .desc-content {
+      display: none;
+      margin-top: 15px;
+      padding: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fafafa;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Imagens -->
+    <div class="left">
+      <div class="thumbs" id="thumbs-container"></div>
+      <img src="" alt="Produto" class="main-img" id="main-img">
+    </div>
+
+    <!-- Informações -->
+    <div class="right">
+      <h2 id="product-name"></h2>
+
+      <!-- Preço -->
+      <div class="price">
+        <p class="price-old">Antes: <span>R$ 1.160,14</span></p>
+        <p class="price-installment">12x de <span>R$ 59,90</span> (Total: R$ 718,80)</p>
+      </div>
+
+      <!-- Opções de cores -->
+      <div class="colors">
+        <h4>Cores disponíveis:</h4>
+        <div class="color-thumbs">
+          <img src="./img/home_1300/home-1300-hambiente.webp" alt="Branco" data-color="Branco" class="selected">
+          <img src="./img/home_1300/home-1300-hambiente-preto.webp" alt="preto" data-color="preto">
+        </div>
+      </div>
+
+      <!-- Botão WhatsApp -->
+      <a id="whatsapp-btn" href="#" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+         Gostei do produto, quero comprar pelo WhatsApp
+      </a>
+
+      <p class="extra">A compra do móvel não inclui montagem.</p>
+    </div>
+  </div>
+
+  <!-- Seção Descrição separada -->
+  <div class="product-description">
+    <button class="desc-btn" id="desc-btn" onclick="toggleDescription()">Ver descrição completa</button>
+    <div class="desc-content" id="desc-content">
+      <h4>Descrição do Produto</h4>
+      <p>Home Nt1300 160cm para Tv até 65 Polegadas da Notável...</p>
+      <ul>
+        <li>✅ Marca: Notável</li>
+        <li>✅ Estrutura: Mdf e MDP</li>
+        <li>✅ Quantidade de Portas: 02, Quantidade de Nichos: 02</li>
+        <li>✅ Com Pistão a Gás: Sim, Com Pés em Metal: Sim</li>
+      </ul>
+      <h4>Dimensões e Peso</h4>
+      <ul>
+        <li>Altura: 185 cm</li>
+        <li>Largura: 160 cm</li>
+        <li>Profundidade: 36 cm</li>
+        <li>Peso: 54 kg</li>
+      </ul>
+      <p><strong>Observação:</strong> A montagem não está inclusa.</p>
+    </div>
+  </div>
+
+  <script>
+    const mainImg = document.getElementById('main-img');
+    const thumbsContainer = document.getElementById('thumbs-container');
+    const colorThumbs = document.querySelectorAll('.color-thumbs img');
+    const productNameEl = document.getElementById('product-name');
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+    const phone = "5588974008564";
+    let selectedColor = "Branco";
+
+    // Imagens por cor
+    const colorImages = {
+      "Branco": [
+        "./img/home_1300/home-1300-hambiente.webp",
+        "./img/home_1300/home-1300-fundobranco.webp",
+        "./img/home_1300/home-1390-tamanho.webp",
+      ],
+      "preto": [
+        "./img/home_1300/home-1300-hambiente-preto.webp",
+        "./img/home_1300/home-1300-hambiente-preto-aberto.webp",
+        "./img/home_1300/home-1390-tamanho.webp",
+      ]
+    };
+
+    // Descrição por cor
+    const colorDescriptions = {
+      "Branco": "Home NT1300 160cm para Tv ate 65 Polegadas Notável - Freijó Trend/ Off White Tx",
+      "preto": "Home NT1300 160cm para Tv ate 65 Polegadas Notável - Freijó Trend/ Preto Tx"
+    };
+
+    // Atualiza miniaturas
+    function updateThumbs(color) {
+      thumbsContainer.innerHTML = "";
+      colorImages[color].forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Thumb";
+        img.classList.toggle('selected', index === 0);
+        img.addEventListener("click", () => {
+          mainImg.src = src;
+          thumbsContainer.querySelectorAll('img').forEach(i => i.classList.remove('selected'));
+          img.classList.add('selected');
+        });
+        thumbsContainer.appendChild(img);
+      });
+      mainImg.src = colorImages[color][0];
+    }
+
+    // Troca de cor
+    colorThumbs.forEach(color => {
+      color.addEventListener('click', () => {
+        colorThumbs.forEach(c => c.classList.remove('selected'));
+        color.classList.add('selected');
+        selectedColor = color.dataset.color;
+        updateThumbs(selectedColor);
+        productNameEl.innerText = colorDescriptions[selectedColor];
+      });
+    });
+
+    // Botão WhatsApp
+    whatsappBtn.addEventListener('click', () => {
+      const message = `Olá, tenho interesse no produto: ${productNameEl.innerText} - Cor: ${selectedColor}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      whatsappBtn.href = url;
+    });
+
+    // Toggle descrição
+    function toggleDescription() {
+      const desc = document.getElementById("desc-content");
+      const btn = document.getElementById("desc-btn");
+      if (desc.style.display === "block") {
+        desc.style.display = "none";
+        btn.innerText = "Ver descrição completa";
+      } else {
+        desc.style.display = "block";
+        btn.innerText = "Ocultar descrição";
+      }
+    }
+
+    // Inicializa
+    updateThumbs(selectedColor);
+    productNameEl.innerText = colorDescriptions[selectedColor];
+  </script>
+
+</body>
+</html>

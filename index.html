@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal de Vendas - Natal Prorroga Black</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('./natal.png.png') center/cover no-repeat fixed;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid #ff0000;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .banner {
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 900px;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 14px;
+      text-align: center;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .banner h2 {
+      font-size: 2.2rem;
+      color: #ffd700;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ------------------- */
+    /* 🔥 PADRONIZAÇÃO DOS CARDS */
+    /* ------------------- */
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid #ffd700;
+      border-radius: 14px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+
+      /* Padronização REAL */
+      display: flex;
+      flex-direction: column;
+      height: 520px; /* altura fixa */
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,215,0,0.7);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .card img {
+  width: 100%;
+  height: 200px;               /* altura reduzida e padronizada */
+  border-radius: 10px;
+
+  object-fit: contain;         /* mostra o produto INTEIRO */
+  background: #ffffff15;       /* fundo suave p/ imagens que não preenchem */
+  padding: 5px;                /* evita que grude nas bordas */
+}
+
+
+    /* NOME DO PRODUTO – altura padrão */
+    .card h4 {
+      min-height: 55px;
+      font-size: 1.1rem;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* BLOCO DE PREÇOS – mesma altura para todos */
+    .preco-bloco {
+      min-height: 75px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 5px;
+    }
+
+    .parcelamento {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffd700;
+      text-shadow: 0 0 6px #000;
+    }
+
+    .parcelamento_duplo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffd700;
+      text-shadow: 0 0 6px #000;
+    }
+
+    .parcelamento_quatro {
+      font-size: 1.0rem;
+      font-weight: bold;
+      color: #ffd700;
+      text-shadow: 0 0 6px #000;
+    }
+
+    .total {
+      font-size: 1.2rem;
+      color: #ffffff;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .total_duplo {
+      font-size: 0.8rem;
+      color: #ffffff;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .total_quatro {
+      font-size: 0.6rem;
+      color: #ffffff;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    /* BOTÃO SEMPRE COLADO EMBAIXO */
+    .btn-wpp {
+      margin-top: auto;
+      background: #25d366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: 0.2s ease;
+      display: block;
+    }
+
+    .btn-wpp:hover {
+      background: #1ebe57;
+      transform: scale(1.05);
+    }
+
+    /* BLOCO 4 E 6 CADEIRAS – também padronizado */
+    .bloco-duplo {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      min-height: 75px;
+      padding: 5px;
+    }
+
+    .duplo-item {
+      background: #00000033;
+      padding: 10px 14px;
+      border-radius: 10px;
+      width: 120px;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+      font-weight: bold;
+    }
+
+    .duplo-item div:first-child {
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      background: rgba(0, 0, 0, 0.75);
+      border-top: 2px solid #ff0000;
+      font-size: 1.1rem;
+      text-shadow: 0 0 10px #000;
+    }
+
+    header {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 2px solid #ff0000;
+  text-shadow: 0 0 10px #000;
+
+  display: flex;               /* CENTRALIZA */
+  flex-direction: column;
+  align-items: center;         /* CENTRALIZA HORIZONTAL */
+  gap: 10px;                   /* Espaço entre a imagem e o texto */
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ajuste extra para celulares */
+@media (max-width: 480px) {
+  header img {
+    width: 80%;      /* diminui um pouco no mobile */
+    max-width: 320px;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+  <img src="./image-removebg-preview (1).png" alt="">
+</header>
+
+
+  <section class="banner">
+    <h2>O clima é de Natal, mas o preço ainda é BLACK!</h2>
+    <h3>VENDEDOR – JEFFERSON MESQUISTA</h3>
+    <p>Aproveite nossas ofertas especiais e ilumine seu fim de ano com economia.</p>
+  </section>
+
+  <section class="produtos">
+
+    <!-- --------------------- PRODUTO 1 --------------------- -->
+    <div class="card">
+      <img src="./img/home_1300/71v0dJY4p5L._AC_SX679_.jpg" alt="">
+      <h2>Home NT1300 160cm para Tv ate 65 Polegadas Notável"</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x de R$ 59,90 sem juros</div>
+        <div class="total">R$ 718,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20home%20NT1300">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 2 --------------------- -->
+    <div class="card">
+      <img src="./img/home_1300/home-1390-hambiente.webp" alt="">
+      <h2>Painel NT1390 160cm para Tv até 65"</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x de R$ 59,90 sem juros</div>
+        <div class="total">R$ 718,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20home%20NT1390">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 3 --------------------- -->
+    <div class="card">
+      <img src="./img/painel-bancada-nadine/nadine-hambiente.webp" alt="">
+      <h2>Rack Bancada + Painel Nadine para tv ate 75</h2>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>painel</div>
+          <div class="parcelamento_duplo">12x R$ 64,90</div>
+          <div class="total_duplo">(R$ 778,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>bancada</div>
+          <div class="parcelamento_duplo">12x R$ 84,90</div>
+          <div class="total_duplo">(R$ 1.018,80)</div>
+        </div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20painel%20e%20bancada%20nadine">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 4 --------------------- -->
+    <div class="card">
+      <img src="./img/kit-roma/kit-roma-hambiente.webp" alt="">
+      <h2>Kit Estofado Roma 3 e 2 Lugares</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 74,90 sem juros</div>
+        <div class="total">R$ 898,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20kit%20roma">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 5 --------------------- -->
+    <div class="card">
+      <img src="./img/sofa-montana/sofa-montana-ambiente.webp" alt="">
+      <h2>Sofá Montana Retrátil e Reclinável</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 105,90 sem juros</div>
+        <div class="total">R$ 1.270,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20sofa%20montana">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 6 --------------------- -->
+    <div class="card">
+      <img src="./img/sofa-emporio/sofa-emporio-ambiente.webp" alt="">
+      <h2>Kit Sofá Emporium + Poltronas + Puff</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 219,90 sem juros</div>
+        <div class="total">R$ 2.638,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20sofa%20emporio">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 7 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/mesa-michely/mesa-michely.webp" alt="">
+      <h2>Conj. Mesa Michelly – 4 ou 6 Cadeiras</h2>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>4 lugares</div>
+          <div class="parcelamento_duplo">12x R$ 69,90</div>
+          <div class="total_duplo">(R$ 838,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>6 lugares</div>
+          <div class="parcelamento_duplo">12x R$ 89,90</div>
+          <div class="total_duplo">(R$ 1.078,80)</div>
+        </div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20mesa%20michely">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 8 --------------------- -->
+    <div class="card">
+      <img src="./img/mesa-graviola/mesa-graviola-branco.png" alt="">
+      <h2>Mesa Graviola + 6 Cadeiras Camélia</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 224,90 sem juros</div>
+        <div class="total">R$ 2.698,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20mesa%20grafiola">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 9 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/mesa-mira/mesa-mira-hambiente.png" alt="">
+      <h2>Mesa de Jantar Mira – 4 ou 6 Cadeiras</h2>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>4 lugares</div>
+          <div class="parcelamento_duplo">12x R$ 429,90</div>
+          <div class="total_duplo">(R$ 5.158,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>6 lugares</div>
+          <div class="parcelamento_duplo">12x R$ 559,90</div>
+          <div class="total_duplo">(R$ 6.718,80)</div>
+        </div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20mesa%20mira">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 10 --------------------- -->
+    <div class="card">
+      <img src="./img/nt6015/nt6015 hambiente.webp" alt="">
+      <h2>Guarda Roupa 6 Portas NT6015 com 2 Gavetas com Pés Notável</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 64,90 sem juros</div>
+        <div class="total">R$ 778,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20home%20nt6015">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 12 --------------------- -->
+    <div class="card">
+      <img src="./img/cozinha-viena/cozinha-viena-hambiente.webp" alt="">
+      <h2>Cozinha Completa Viena com 11 Portas e 3 Gavetas Atualle</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 149,90 sem juros</div>
+        <div class="total">R$ 1.798,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20cozinha%20viena">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 13 --------------------- -->
+    <div class="card">
+      <img src="./img/bebedouro-branco/bebedouro-branco.webp" alt="">
+      <h2>Bebedouro de Coluna Esmaltec - Branco</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 69,90 sem juros</div>
+        <div class="total">R$ 838,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20bebedouro%20de%20coluna">Fechar pedido ✔</a>
+    </div>
+    <!-- --------------------- PRODUTO 14 --------------------- -->
+    <div class="card">
+      <img src="./img/geladeir-brm44/brm44-brastemp.webp" alt="">
+      <h2>Geladeira 375 Litros BRM44 Brastemp - Brancoo</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 279,90 sem juros</div>
+        <div class="total">R$ 3.358,8</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20geladeira%20brm44%20375%20L">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 15 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/cooktop-milao/cooktop-milao-glass.webp" alt="">
+      <h2>Cooktop Atlas Milão Mega Chama a Gás Preto Bivolt</h2>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>4 bocas</div>
+          <div class="parcelamento_duplo">12x R$ 46,90</div>
+          <div class="total_duplo">(R$ 562,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>6 bocas</div>
+          <div class="parcelamento_duplo">12x R$ 56,90</div>
+          <div class="total_duplo">(R$ 682,80)</div>
+        </div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20cooktop%20milao%20glass">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 16 --------------------- -->
+    <div class="card">
+      <img src="./img/fogao-consul-esmaltado/consul-esmaltado.webp" alt="">
+      <h2>Fogão 4 Bocas Preto Consul com Mesa Esmaltada</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 99,90 sem juros</div>
+        <div class="total">R$ 1.198,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20fogão%20consul%20esmaltado">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 17 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/max-glass/max-glass-5bocas.webp" alt="">
+      <h2>Fogão de Piso Max Glass Suggar - Preto/Bivolt</h2>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>4 bocas</div>
+          <div class="parcelamento_duplo">12x R$ 99,90</div>
+          <div class="total_duplo">(R$ 1.198,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>6 bocas</div>
+          <div class="parcelamento_duplo">12x R$ 129,90</div>
+          <div class="total_duplo">(R$ 1.558,80)</div>
+        </div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20fogão%20max%20glass">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 18 --------------------- -->
+    <div class="card">
+      <img src="./img/ideal-pop/ideal-pop-branco-4bocas.webp" alt="">
+      <h2>Fogão 4 Bocas com Mesa Inox e Acendimento manual Ideal-Pop-Esmaltec</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 49,90 sem juros</div>
+        <div class="total">R$ 598,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20fogão%20ideal-pop">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 19 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/central-midea/central-ar-midea.webp" alt="">
+      <h2>Central de Ar-condicionado Springer Midea</h2>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>9.000Btus</div>
+          <div class="parcelamento_duplo">12x R$ 209,90</div>
+          <div class="total_duplo">(R$ 2.518,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>12.000Btus</div>
+          <div class="parcelamento_duplo">12x R$ 249,90</div>
+          <div class="total_duplo">(R$ 2.998,80)</div>
+        </div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20central-de-ar-midea">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 20 --------------------- -->
+    <div class="card">
+      <img src="./img/lavadora-midea15kg/lavadora-midea-15kg.webp" alt="">
+      <h2>Lavadora Automática Midea MA512W150A/WK-05 15Kg</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 179,90 sem juros</div>
+        <div class="total">R$ 2.158,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20maquina%2015kg%20mide">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 21 --------------------- -->
+    <div class="card">
+      <img src="./img/lavamax-8kg/lavamax-8kg.webp" alt="">
+      <h2>Lavadora de Roupas 8kg AL8002PT 400W Suggar</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 34,90 sem juros</div>
+        <div class="total">R$ 418,8</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20tanquinho%208kg-suggar">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 22 --------------------- -->
+    <div class="card">
+      <img src="./img/tcl-55/tlc-55.webp" alt="">
+      <h3>Smart TV 55" TCL 4K UHD QLED 55P7K Google TV AiPQ Google Assistente</h3>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 259,90 sem juros</div>
+        <div class="total">R$ 3.118,8</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20tv-55-polegadas-tcl">Fechar pedido ✔</a>
+    </div>
+    <!-- --------------------- PRODUTO 23 --------------------- -->
+    <div class="card">
+      <img src="./img/tcl-40/tcl-40.jpg" alt="">
+      <h3>Smart TV TCL 40 Polegadas Full HD QLED S5K WiFi Bluetooth Google TV Dolby Audio 40S5K</h3>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 149,90 sem juros</div>
+        <div class="total">R$ 1.798,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20tv-40-polegadas-tcl">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 24 --------------------- -->
+    <div class="card">
+      <img src="./img/multilaser-32/multilaser-32.jpg" alt="">
+      <h3>Smart TV DLED 32 HD Multi Android 11 3HDMI 2USB Bluetooth - TL062M</h3>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 96,90 sem juros</div>
+        <div class="total">R$ 1.162,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20tv-multalser-32-polegadas">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 25 --------------------- -->
+    <div class="card">
+      <img src="./img/caixa-2400w/caixa-2400w.jpg" alt="">
+      <h2>CAIXA DE SOM BLUETOOTH 5.3 TWS PARTY SPEAKER 2400W - TAX5509</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 139,90 sem juros</div>
+        <div class="total">R$ 1.678,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20caixa-philips-2400w">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 26 --------------------- -->
+    <div class="card">
+      <img src="./img/caixa-550w/caixa-550w.avif" alt="">
+      <h2>Caixa Amplificada Connect Partyplus, Mondial, Preto, 250W RMS, Bivolt - CM-250</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 49,90 sem juros</div>
+        <div class="total">R$ 598,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20caixa-550w-mundial">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 26 --------------------- -->
+    <div class="card">
+      <img src="./img/aca221/aca221.jpg" alt="">
+      <h3>Amvox Caixa de Som Amplificada ACA 221 Gigante II - 220W RMS, Bluetooth, Rádio FM, USB</h3>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 19,90 sem juros</div>
+        <div class="total">R$ 238,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20caixa-aca221-gigante-II">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 27 --------------------- -->
+    <div class="card">
+      <img src="./img/arno-6xtreme/arno-xtreme6.webp" alt="">
+      <h3>Ventilador de Mesa e Parede 40 cm 2em1 Xtreme6 VE2400B4 Arno - Preto/220V</h3>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 19,90 sem juros</div>
+        <div class="total">R$ 238,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20ventilador%20arno%20xtreme-6%2040cm">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 28 --------------------- -->
+    <div class="card">
+      <img src="./img//CB02R588/CB02R588.webp" alt="">
+      <h2>Guarda Roupa CB02R588 2 Portas de Correr Com Pés Kappesberg</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 79,90 sem juros</div>
+        <div class="total">R$ 958,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20roupeiro%20cb02r588">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 29 --------------------- -->
+    <div class="card">
+      <img src="./img/coz-diamante/coz-diamante.jpg" alt="">
+      <h2>Cozinha De Aço Compacta Telasul Diamante Smart 4pçs</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 129,90 sem juros</div>
+        <div class="total">R$ 1.558,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20cozinha-diamante-completa">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 30 --------------------- -->
+    <div class="card">
+      <img src="./img/crd37-consul/cdr37-consul.webp" alt="">
+      <h2>Refrigerador Consul Duplex 334 Litros Branco CRD37EBANA</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 239,90 sem juros</div>
+        <div class="total">R$ 2.878,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20geladeira-cdr37%20consul%20334%20L">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 31 --------------------- -->
+    <div class="card">
+      <img src=".//img/coz-harmonia/coz-harmonia-hambiente.webp" alt="">
+      <h2>Kit Cozinha Harmonia 6 Portas e 2 Gavetas 96201 Demóbile</h2>
+
+      <div class="preco-bloco">
+        <div class="parcelamento">12x R$ 59,90 sem juros</div>
+        <div class="total">R$ 718,80</div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20cozinha%20harmonia">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 32 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/cama-stylos/cama-stylus.jpg" alt="">
+      <h4>Conjunto Box Stylus Molas Ensacadas Topázio-Marrom</h4>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>solteirão|108x198x72cm</div>
+          <div class="parcelamento_quatro">12x R$ 89,90</div>
+          <div class="total_quatro">(R$ 1.078,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>casal|138x188x72cm</div>
+          <div class="parcelamento_quatro">12x R$ 94,90</div>
+          <div class="total_quatro">(R$ 1.138,80)</div>
+        </div>
+      </div>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>queem|158x198x72cm</div>
+          <div class="parcelamento_quatro">12x R$ 119,90</div>
+          <div class="total_quatro">(R$ 1.438,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>king|198x198x72cm</div>
+          <div class="parcelamento_quatro">12x R$ 164,90</div>
+          <div class="total_quatro">(R$ 1.978,80)</div>
+        </div>
+      </div>
+
+      <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20na%20cama-gazin-queens">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 33 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/cama-gazin/cama-gazin-queens.png" alt="">
+      <h4>conjunto cama queens gazin</h4>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>casal|138x188x72cm</div>
+          <div class="parcelamento_quatro">12x R$ 184,90</div>
+          <div class="total_quatro">(R$ 2.218,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>queen|158x198x34cm</div>
+          <div class="parcelamento_quatro">12x R$ 214,90</div>
+          <div class="total_quatro">(R$ 2.578,80)</div>
+        </div>
+      </div>
+
+      <div class="bloco-duplo">
+
+        <div class="duplo-item">
+          <div>king|198x198x72cm</div>
+          <div class="parcelamento_quatro">12x R$ 254,90</div>
+          <div class="total_quatro">(R$ 3.058,80)</div>
+        </div>
+      </div>
+
+    <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20cama-gazin-QUEENS">Fechar pedido ✔</a>
+    </div>
+
+    <!-- --------------------- PRODUTO 34 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/cama-new-youk-gazin/cama-new-youk-gazin.png" alt="">
+      <h4>conjunto box new york gazin</h4>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>solteiro|88x188x26cm</div>
+          <div class="parcelamento_quatro">12x R$ 79,90</div>
+          <div class="total_quatro">(R$ 958,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>casal|138x188x26cm</div>
+          <div class="parcelamento_quatro">12x R$ 116,90</div>
+          <div class="total_quatro">(R$ 1.402,80)</div>
+        </div>
+      </div>
+
+      <div class="bloco-duplo">
+
+        <div class="duplo-item">
+          <div>queen|158x198x26cm</div>
+          <div class="parcelamento_quatro">12x R$ 144,90</div>
+          <div class="total_quatro">(R$ 1.738,80)</div>
+        </div>
+      </div>
+
+    <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20cama-box-new-york-gazin">Fechar pedido ✔</a>
+    </div>
+
+    <!----------------------- PRODUTO 35 (4 E 6 LUGARES) --------------------- -->
+    <div class="card">
+      <img src="./img/colchão-phisical/colchão-physical.webp" alt="">
+      <h4>Colchão Casal Physical Ultra Espuma Ortobom</h4>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>88x188x17cm</div>
+          <div class="parcelamento_quatro">12x R$ 39,90</div>
+          <div class="total_quatro">(R$ 478,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>88x188x20cm</div>
+          <div class="parcelamento_quatro">12x R$ 44,90</div>
+          <div class="total_quatro">(R$ 538,80)</div>
+        </div>
+      </div>
+
+      <div class="bloco-duplo">
+        <div class="duplo-item">
+          <div>138x188x17cm</div>
+          <div class="parcelamento_quatro">12x R$ 59,90</div>
+          <div class="total_quatro">(R$ 718,80)</div>
+        </div>
+
+        <div class="duplo-item">
+          <div>138x188x20cm</div>
+          <div class="parcelamento_quatro">12x R$ 69,90</div>
+          <div class="total_quatro">(R$ 838,80)</div>
+        </div>
+      </div>
+
+    <a class="btn-wpp" href="https://wa.me/558874008564?text=Tenho%20interesse%20no%20colchão-ortobom-phisical">Fechar pedido ✔</a>
+    </div>
+
+
+  </section>
+
+  <footer>
+    © 2025 Portal de Vendas - Especial de Natal 🎅✨
+  </footer>
+
+</body>
+</html>
